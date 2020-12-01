@@ -1012,6 +1012,123 @@ const AP_Param::GroupInfo ParametersG2::var_info[] = {
     AP_GROUPINFO("RTL_OPTIONS", 43, ParametersG2, rtl_options, 0),
 #endif
 
+/* #FAULT INJECTIOM */
+
+    // @Param: INJECT_ENABLED
+    // @DisplayName: Active fault injection system
+    // @Description: This enables the fault_injection routine on arducopter.cpp. Generate and injects faults on the sensor values based on the params, injection_method and injection_type.
+    // @Values: 0:Stopped,1:Running
+    // @Range: 0.0 1.0
+    // @User: Advanced
+    AP_GROUPINFO("INJ_ENABLED", 44, ParametersG2, inj_enabled, 0),
+    
+    // @Param: INJ_DELAY_START
+    // @DisplayName: Dealy to start fault injection
+    // @Description: This enables the fault_injection after a certain delay.
+    // @Values: time in ms
+    // @User: Advanced
+    AP_GROUPINFO("INJ_DELAY", 45, ParametersG2, inj_delay_to_start, 0),
+    
+    // @Param: INJ_DURATION
+    // @DisplayName: Dealy to start fault injection
+    // @Description: This enables the fault_injection after a certain delay.
+    // @Values: time in ms
+    // @User: Advanced
+    AP_GROUPINFO("INJ_DURATION", 46, ParametersG2, inj_duration, 0),
+
+    // @Param: INJ_TYPE
+    // @DisplayName: Sensors to apply fault injection
+    // @Description: Used to choose the sensors that will be applied the fault injection
+    // @Values: 0:compass,1:barometer
+    // @User: Advancedbbbb
+    AP_GROUPINFO("INJ_SENSORS", 47, ParametersG2, inj_sensors, 0),    
+
+    // @Param: INJ_METHOD
+    // @DisplayName: Method to apply the fault injection
+    // @Description: Fail injection allow differents ways to generate errors on the sensors, static values, noise over the sensor values, random values(min max) and repeat the last known value.
+    // @Values: 0:static_values,1:random_values,2:noise,3:repeat_last_known_value
+    // @Range: 0 1
+    // @Increment: 1
+    // @User: Advanced
+    AP_GROUPINFO("INJ_METHOD", 48, ParametersG2, inj_method, 0),
+    
+    //*************************************Method values**************************
+    
+    // @Param: INJ_FIELD
+    // @DisplayName: 
+    // @Description:
+    // @Values: AP_Float
+    // @Range: 
+    // @Increment: 
+    // @User: Advanced
+    AP_GROUPINFO("INJ_FIELD_X", 49, ParametersG2, inj_static_valueX, 0),
+
+    // @Param: INJ_FIELD
+    // @DisplayName: 
+    // @Description:
+    // @Values: AP_Float
+    // @Range: 
+    // @Increment: 
+    // @User: Advanced
+    AP_GROUPINFO("INJ_FIELD_Y", 50, ParametersG2, inj_static_valueY, 0),
+
+    // @Param: INJ_FIELD
+    // @DisplayName: 
+    // @Description:
+    // @Values: AP_Float
+    // @Range: 
+    // @Increment: 
+    // @User: Advanced
+    AP_GROUPINFO("INJ_FIELD_Z", 51, ParametersG2, inj_static_valueZ, 0),
+    
+    // @Param: NOISE_U
+    // @DisplayName: Mean
+    // @Description:
+    // @Values: AP_Float
+    // @Range: 
+    // @Increment: 
+    // @User: Advanced
+    AP_GROUPINFO("INJ_NOISE_M", 52, ParametersG2, inj_noise_mean, 0),
+
+    // @Param: NOi_D
+    // @DisplayName: standard deviation
+    // @Description:
+    // @Values: AP_Float
+    // @Range: 
+    // @Increment: 
+    // @User: Advanced
+    AP_GROUPINFO("INJ_NOISE_D", 53, ParametersG2, inj_noise_std, 0),
+
+    // @Param: MIN
+    // @DisplayName: 
+    // @Description:
+    // @Values: AP_Float
+    // @Range: 
+    // @Increment: 
+    // @User: Advanced
+    AP_GROUPINFO("INJ_MIN", 54, ParametersG2, inj_min_value, 0),
+    
+    // @Param: MAX
+    // @DisplayName: 
+    // @Description:
+    // @Values: AP_Float
+    // @Range: 
+    // @Increment: 
+    // @User: Advanced
+    AP_GROUPINFO("INJ_MAX", 55, ParametersG2, inj_max_value, 0),
+
+        // @Param: MAX
+    // @DisplayName: 
+    // @Description:
+    // @Values: AP_Int8
+    // @Range: 
+    // @Increment: 
+    // @User: Advanced
+    AP_GROUPINFO("INJ_WP_TRIG", 56, ParametersG2, inj_wp_trigger, 1),
+
+
+/* END FAULT INJECTION */
+
     AP_GROUPEND
 };
 

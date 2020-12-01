@@ -371,6 +371,11 @@ public:
         // 254,255: reserved
 
         k_param_vehicle = 257, // vehicle common block of parameters
+        
+        #ifdef FAULT_INJECTION
+            //105 : #FAULT INJECTION
+            k_param_fault_injection = 258,
+        #endif
 
         // the k_param_* space is 9-bits in size
         // 511: reserved
@@ -632,6 +637,24 @@ public:
 #if MODE_RTL_ENABLED == ENABLED
     AP_Int32 rtl_options;
 #endif
+
+/* #FAULT INJECTIOM */
+
+    AP_Int8  inj_enabled;
+    AP_Int8  inj_sensors;
+    AP_Int8  inj_method;
+    AP_Int8  inj_wp_trigger;
+    AP_Int32 inj_delay_to_start;
+    AP_Int32 inj_duration;
+    AP_Float inj_static_valueX;
+    AP_Float inj_static_valueY;
+    AP_Float inj_static_valueZ;
+    AP_Float inj_noise_mean;
+    AP_Float inj_noise_std;
+    AP_Float inj_min_value;
+    AP_Float inj_max_value;
+
+/* END FAULT INJECTION */
 
 };
 
